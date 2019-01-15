@@ -1,6 +1,24 @@
 <template>
   <section id="About">
-    <h1>Hi, About us</h1>
-    <p>some content</p>
+    <h1>{{ title }}</h1>
+    <p>{{ content }}</p>
   </section>
 </template>
+
+<script>
+export default {
+  asyncData(context) {
+    return context.app.$storyapi
+      .get('cdn/stories/about', {
+        version: 'draft'
+      })
+      .then(res => {
+        console.log(res.data)
+        return {
+          title: res.data.story.content.title,
+          content: res.data.story.content.content
+        }
+      })
+  }
+}
+</script>
