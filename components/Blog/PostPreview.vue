@@ -6,8 +6,8 @@
         :style="{backgroundImage: 'url(' + thumb + ')'}" 
         class="post-preview-thumb" />
       <div class="post-preview-content">
-        <div>{{ title }}</div>
-        <div>{{ excerpt }}</div>
+        <div class="post-title">{{ title }}</div>
+        <div class="post-excerpt">{{ excerpt }}</div>
       </div>
     </article>
   </nuxt-link>
@@ -60,6 +60,19 @@ a {
 .post-preview-content {
   padding: 1rem;
   text-align: center;
+}
+
+.post-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.post-excerpt {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 @media (min-width: 35rem) {
