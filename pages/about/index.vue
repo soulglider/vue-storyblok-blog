@@ -1,5 +1,5 @@
 <template>
-  <section id="About">
+  <section id="about-page">
     <h1>{{ title }}</h1>
     <p>{{ content }}</p>
   </section>
@@ -22,3 +22,20 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#about-page {
+  width: 90%;
+  max-width: 640px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+p {
+  white-space: pre;
+}
+</style>
