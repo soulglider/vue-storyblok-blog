@@ -43,7 +43,7 @@ a {
 }
 
 .post-preview {
-  margin: auto;
+  margin: 1rem;
   width: 90%;
   height: 20rem;
   border-radius: 3px;
