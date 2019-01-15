@@ -3,8 +3,8 @@
     :to="id">
     <article class="post-preview">
       <div 
-        :style="{backgroundImage: 'url('+ thumb +')'}" 
-        :class="post-preview-thumb"/>
+        :style="{backgroundImage: 'url(' + thumb + ')'}" 
+        class="post-preview-thumb" />
       <div class="post-preview-content">
         <div>{{ title }}</div>
         <div>{{ excerpt }}</div>
