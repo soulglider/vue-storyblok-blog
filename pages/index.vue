@@ -17,26 +17,45 @@ export default {
   components: {
     PostPreview
   },
-  data() {
-    return {
-      posts: [
-        {
-          title: 'Maunsell Forts',
-          previewText: 'Maunsell Forts, Thames Estuary, WW2',
-          img:
-            'https://theromneymarsh.net/assets/fileman/Uploads/History/buildings/Sound%20Mirrors/30_Foot_Sound_Mirror_2015.jpg',
-          id: 'maunsell-forts'
-        },
-        {
-          title: 'La Coupole',
-          previewText: 'La Coupole, France WW2',
-          img:
-            'https://theromneymarsh.net/assets/fileman/Uploads/History/buildings/Sound%20Mirrors/30_Foot_Sound_Mirror_2015.jpg',
-          id: 'la-coupole-france'
+  asyncData(context) {
+    return context.app.$storyapi
+      .get('cdn/stories', {
+        version: 'draft',
+        starts_with: 'blog/'
+      })
+      .then(res => {
+        return {
+          posts: res.data.stories.map(bp => {
+            return {
+              id: bp.slug,
+              title: bp.content.title,
+              previewText: bp.content.summary,
+              img: bp.content.thumbnail
+            }
+          })
         }
-      ]
-    }
+      })
   }
+  // data() {
+  //   return {
+  //     posts: [
+  //       {
+  //         title: 'Maunsell Forts',
+  //         previewText: 'Maunsell Forts, Thames Estuary, WW2',
+  //         img:
+  //           'https://theromneymarsh.net/assets/fileman/Uploads/History/buildings/Sound%20Mirrors/30_Foot_Sound_Mirror_2015.jpg',
+  //         id: 'maunsell-forts'
+  //       },
+  //       {
+  //         title: 'La Coupole',
+  //         previewText: 'La Coupole, France WW2',
+  //         img:
+  //           'https://theromneymarsh.net/assets/fileman/Uploads/History/buildings/Sound%20Mirrors/30_Foot_Sound_Mirror_2015.jpg',
+  //         id: 'la-coupole-france'
+  //       }
+  //     ]
+  //   }
+  // }
 }
 </script>
 
